@@ -3,17 +3,18 @@ class AdditionsController < ApplicationController
   end
 
   def create
-    round = Round.find_all_by_story_id(params[:addition][:story_id]).last #Story.find(params[:story_id]).rounds.last
-    # debugger
 
-    if round.winner_id != null
+    round = Round.find_all_by_story_id(params[:addition][:story_id]).last
+    #round = Story.find(params[:addition][:story_id]).rounds.last
 
-      new_round = Round.create(:params['story_id'])
-      Addition.create(round_id: new_round.id, user_id: params['user_id'], content: params['content'])
+    if round.winner_id != nil
+
+      new_round = Round.create({:story_id => params[:addition][:story_id]})
+      Addition.create({round_id: new_round.id, user_id: params[:addition][:user_id], content: params[:addition][:content]})
 
     else
 
-     Addition.create(round_id: round.id, user_id: params['user_id'], content: params['content'])
+     Addition.create({round_id: round.id, user_id: params[:addition][:user_id], content: params[:addition][:content]})
 
     end
   end
