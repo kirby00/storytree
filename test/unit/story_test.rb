@@ -7,4 +7,15 @@ class StoryTest < ActiveSupport::TestCase
     story = StoryFactory.without_user_id
     assert !story.save
   end
+
+  test "story has content" do
+    story = StoryFactory.without_content
+    assert !story.save
+  end
+
+  test "story has title" do
+    story = StoryFactory.without_title
+    assert !story.save
+  end
+
 end

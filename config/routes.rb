@@ -1,6 +1,9 @@
 StoryTree::Application.routes.draw do
 
-  resources :stories
+resources :users
+
+resources :stories
+
 
   root :to => 'home#index'
 
