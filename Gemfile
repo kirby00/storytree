@@ -13,6 +13,8 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'twitter-bootstrap-rails'
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -49,3 +51,4 @@ group :tools do
   gem 'guard-test'
   gem 'guard-minitest'
 end
+gem 'omniauth-facebook'
