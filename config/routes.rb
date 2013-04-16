@@ -1,6 +1,16 @@
 StoryTree::Application.routes.draw do
 
+  get "additions/new"
+
+  get "additions/create"
+
+  get "additions/index"
+
 root :to => 'home#index'
+
+resources :users
+resources :rounds
+resources :additions
 
 match 'auth/:provider/callback', to: 'sessions#create'
 match 'auth/failure', to: redirect('/')
