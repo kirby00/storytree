@@ -39,4 +39,16 @@ gem 'jquery-rails'
 # To use debugger
  gem 'debugger'
 
+group :development do
+  gem 'annotate'
+  gem 'taps', :require => false
+  gem 'guard'
+  gem 'guard-rails'
+  gem 'rb-fsevent', '~> 0.9'
+end
+
+group :tools do
+  gem 'guard-test'
+  gem 'guard-minitest'
+end
 gem 'omniauth-facebook'
