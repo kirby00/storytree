@@ -1,1 +1,10 @@
+
 <p><%=render 'story'%></p>
+
+<ul style="margin-top: 40px">
+<% @additions.each do |addition| %>
+  <li><%= addition.content %></li>
+<% end %>
+</ul>
+<%= render "additions/form" %>
+

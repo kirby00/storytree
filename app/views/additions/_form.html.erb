@@ -1,0 +1,14 @@
+<h1>add addition</h1>
+
+<%= form_for(@addition) do |f| %>
+  <div class = "field"/>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+
+  <%= hidden_field_tag(:story_id, @story.id) %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%end%>
