@@ -1,6 +1,7 @@
 <% story ||= @story %>
-<h4> Author: <%= User.find(story.user_id).name %> </h4>
-<p><h3><%= link_to story.title, story %></h3></p>
-<p><%= story.content %> </p>
-<p>Story created: <%=time_ago_in_words(story.created_at) %> ago</p>
-
+<div class= "span3">
+  <h4> Author: <%= User.find(story.user_id).name %> </h4>
+  <p><h3><%= link_to story.title, story %></h3></p>
+  <p><%= story.content %> </p>
+  <p>Story created: <%=time_ago_in_words(story.created_at) %> ago</p>
+</div>

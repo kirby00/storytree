@@ -1,11 +1,12 @@
+<%= stylesheet_link_tag    "stories", :media => "all" %>
 
-<p><%= link_to "Add new story", new_story_path %></p>
-
-<div class="row-fluid">
-  <div class= "span4">
-     <h2>TESTING</h2>
-     <%= render @stories %>
-  </div><!--/span-->
-</div>
-
+<body>
+  <p><%= link_to "Add new story", new_story_path %></p>
+  <div class="container-fluid">
+    <div class="row-fluid">
+        <h2>TESTING</h2>
+         <%= render @stories %>
+    </div>
+  </div>
+</body>
 
