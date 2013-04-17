@@ -13,7 +13,12 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    last_round = @story.rounds.last
+    @additions = last_round.additions.all
     @addition = Addition.new
+    # round = Round.find_all_by_story_id(params[:id]).last
+    # @additions = Addition.where("round_id = ?", round.id)
+    #@additions = Round.find_by_story_id(params[:id]).addition.all
   end
 
 end

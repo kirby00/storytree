@@ -1,5 +1,9 @@
 
 <h1><%= @story.title %></h1>
 <p><%= @story.content %></p>
-
+<ul style="margin-top: 40px">
+<% @additions.each do |addition| %>
+  <li><%= addition.content %></li>
+<% end %>
+</ul>
 <%= render "additions/form" %>
