@@ -2,10 +2,10 @@ require 'test_helper'
 
 class StoriesControllerTest < ActionController::TestCase
 
-  def setup
-    @story = Story.new
-    @story.save
-  end
+ # def setup
+  #  @story = Story.new
+  #  @story.save
+ # end
 
   test "should get new" do
     get :new
@@ -24,6 +24,12 @@ class StoriesControllerTest < ActionController::TestCase
   test "should show" do
     get :show, id: @story
     assert_response :success
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:stories)
   end
 
 end
