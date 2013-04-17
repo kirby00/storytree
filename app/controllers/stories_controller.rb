@@ -7,12 +7,13 @@ class StoriesController < ApplicationController
   def create
     @user = current_user
     @story = @user.stories.create(params[:story])
-    redirect_to story_path(@story)
     Round.create({story_id: @story.id})
+    redirect_to story_path(@story)
   end
 
   def show
     @story = Story.find(params[:id])
+
     last_round = @story.rounds.last
     @additions = last_round.additions.all
     @addition = Addition.new
