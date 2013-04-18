@@ -6,35 +6,24 @@
   <p><%= addition.content %></p>
 <% end %>
 
-<ul id="additions" style="margin-top: 40px">
-<% @additions.each do |addition| %>
-  <li><%= addition.content %></li>
-<% end %>
-</ul>
-
-<%= render "additions/form" %>
-
-
 <% if @last_round.winner_id == nil %>
-  <ul style="margin-top: 40px">
+
+  <ul id="additions" style="margin-top: 40px">
   <% @additions.each do |addition| %>
     <li>
       <div><%= addition.content %></div>
-        <!-- add addition author name -->
-
         <% if current_user && @story.user_id == current_user.id %>
-        <form action="/rounds/update" method="post">
-        <input name="_method" type="hidden" value="put">
-        <input type="hidden" name="round_id" value="<%= addition.round_id %>">
-        <input type="hidden" name="addition_id" value="<%= addition.id %>">
-        <input type="hidden" name="story_id" value="<%= @story.id %>">
-        <input type="submit" name="winner" value="winner">
-        </form>
+          <%= form_tag addition.round, method: "put" do %>
+            <input type="hidden" name="addition_id" value="<%= addition.id %>">
+            <input type="hidden" name="story_id" value="<%= @story.id %>">
+            <input type="submit" name="winner" value="winner">
+          <% end %>
         <% end %>
     </li>
   <% end %>
   </ul>
 <% end %>
+
 <% if current_user %>
   <%= render "additions/form" %>
 <% else %>

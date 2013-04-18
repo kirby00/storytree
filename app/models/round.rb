@@ -3,7 +3,6 @@ class Round < ActiveRecord::Base
 
   has_many :additions
   belongs_to :story
-  # has_one :winning_addition, :class_name => "Addition", :
 
 
   def self.get_winner_ids(story)
