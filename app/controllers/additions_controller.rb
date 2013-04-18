@@ -30,4 +30,11 @@ class AdditionsController < ApplicationController
 
     end
   end
+
+    def vote_true
+      @addition = Addition.find(params[:id])
+      vote = current_user.vote_for(@addition)
+      redirect_to :back
+    end
+
 end

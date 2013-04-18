@@ -4,7 +4,14 @@ root :to => 'home#index'
 
 resources :users
 resources :rounds
-resources :additions
+resources :additions do
+  member do
+    get :vote_true
+  end
+end
+
+
+
 resources :stories
 
 match 'auth/:provider/callback', to: 'sessions#create'

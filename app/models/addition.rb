@@ -7,4 +7,7 @@ class Addition < ActiveRecord::Base
 
   belongs_to :round
 
+  acts_as_voteable
+
+
 end
