@@ -1,9 +1,19 @@
 
 <p><%=render 'story'%></p>
 
+
 <% @successful_additions.each do |addition| %>
   <p><%= addition.content %></p>
 <% end %>
+
+<ul id="additions" style="margin-top: 40px">
+<% @additions.each do |addition| %>
+  <li><%= addition.content %></li>
+<% end %>
+</ul>
+
+<%= render "additions/form" %>
+
 
 <% if @last_round.winner_id == nil %>
   <ul style="margin-top: 40px">

@@ -5,16 +5,36 @@ class AdditionsController < ApplicationController
   end
 
   def create
+
     if user = current_user
-      round = Round.find_all_by_story_id(params[:story_id]).last
-      #round = Story.find(params[:addition][:story_id]).rounds.last
-      if round.winner_id != nil
-        new_round = Round.create({:story_id => params[:story_id]})
-        Addition.create({round_id: new_round.id, user_id: user.id, content: params[:addition][:content]})
-      else
-        Addition.create({round_id: round.id, user_id: user.id, content: params[:addition][:content]})
+      if request.xhr?
+
+        addition = (params.slice("story_id"))
+        addition[:content] = params[:addition][:content]
+        addition[:story_id] = addition[:story_id].to_i
+
+        user = current_user
+
+        round = Round.find_all_by_story_id(addition[:story_id]).last
+
+        if round.winner_id != nil
+          new_round = Round.create({:story_id => addition[:story_id]})
+
+          @addition = Addition.create({round_id: new_round.id, user_id: user.id, content: addition[:content]})
+        else
+          @addition = Addition.create({round_id: round.id, user_id: user.id, content: addition[:content]})
+        end
+
+        if @addition.save
+          render :json => { :status => 'true',
+                            :content => @addition.content
+                          }
+        else
+          render :json => { :status => 'false' }
+        end
+
       end
-      redirect_to "/stories/#{params[:story_id]}"
+
     else
       redirect_to root_url
     end

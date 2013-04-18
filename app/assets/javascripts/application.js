@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('#new_addition').submit(function(e) {
+
+    $.ajax({
+      url: "/additions",
+      type: "post",
+      data: $('#new_addition').serialize(),
+
+      success: function(response)
+      {
+        if(response.status == "true")
+        {
+          $('#additions').prepend('<li>' + response.content + '</li>')
+        } else {
+          $('body').prepend('<div class="alert alert-error">Addition not saved to database.</div>');
+        }
+
+      }
+    });
+    e.preventDefault();
+  });
+
+});
