@@ -1,0 +1,30 @@
+<h1><%= @user.name %></h1>
+
+<h2>lists</h2>
+<ul>
+<li>stories</li>
+<li>additions</li>
+</ul>
+
+<% if @stories %>
+  <h3>stories</h3>
+  <% @stories.each do |story| %>
+  <h4><%= story.title %></h4>
+  <% end %>
+<% end %>
+
+<% if @additions %>
+  <h3>additions</h3>
+  <% @additions.each do |addition| %>
+  <h4><%= addition.content %></h4>
+  <% end %>
+<% end %>
+
+<h2>counts</h2>
+<ul>
+<li>stories: <%= @story_count %></li>
+<li>additions: <%= @addition_count %></li>
+<li>winners: <%= @winning_additions_count if @winning_additions_count %></li>
+<li>votes</li>
+<li>total votes / addtions .. average votes (per addition)</li>
+</ul>

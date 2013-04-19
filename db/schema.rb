@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20130418140142) do
     t.datetime "updated_at", :null => false
   end
 
+  # winning_additions_count = user.additions.count {|a| !a.won_round.nil? }
+
   create_table "rounds", :force => true do |t|
     t.integer  "story_id"
     t.integer  "winner_id"
