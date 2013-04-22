@@ -13,5 +13,6 @@ class UsersController < ApplicationController
     @story_count = User.story_count(@user)
     @addition_count = User.addition_count(@user)
     @winning_additions_count = User.winning_additions(@user)
+    @total_votes = User.votes_count(@user)
   end
 end

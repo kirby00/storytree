@@ -24,7 +24,7 @@
 <ul>
 <li>stories: <%= @story_count %></li>
 <li>additions: <%= @addition_count %></li>
-<li>winners: <%= @winning_additions_count if @winning_additions_count %></li>
-<li>votes</li>
-<li>total votes / addtions .. average votes (per addition)</li>
+<li>winning additions: <%= @winning_additions_count if @winning_additions_count %></li>
+<li>votes <%= @total_votes if @total_votes %></li>
+<li>total votes / additions <%=@total_votes%>/<%=@addition_count%> : <%= (@total_votes.to_i / @addition_count.to_f * 100).round(2) %>%</li>
 </ul>
