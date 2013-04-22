@@ -25,3 +25,4 @@ production:
   encoding: unicode
   database: story_tree_production
   pool: 5
+  host: localhost
