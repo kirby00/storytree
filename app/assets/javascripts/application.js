@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require bootstrap
 //= require_tree .
 
 $(document).ready(function() {
+
 
   $('#new_addition').submit(function(e) {
 
