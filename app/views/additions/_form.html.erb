@@ -1,9 +1,9 @@
 <h1>add addition</h1>
 
-<%= form_for @addition do |f| %>
+<%= form_for @addition , :html => {:class => "span8 offset1"} do |f| %>
   <div class = "field"/>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.label :content %>
+    <%= f.text_area :content, :rows=>10, :class => "span8" %>
   </div>
 
   <%= hidden_field_tag(:story_id, @story.id) %>

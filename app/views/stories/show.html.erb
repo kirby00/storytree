@@ -1,18 +1,18 @@
 
 <p><%=render 'story'%></p>
 
-
 <% @successful_additions.each do |addition| %>
   <p><%= addition.content %></p>
 <% end %>
 
 <% if @last_round.winner_id == nil %>
 
-  <ul id="additions" style="margin-top: 40px">
+  <ul id="additions" style="margin-top: 40px" class= "span12">
+
   <% @additions.each do |addition| %>
     <li>
       <div><%= addition.content %></div>
-      <div> Likes <%= addition.votes_for %></div>
+      <div>Likes <%= addition.votes_for %></div>
 
       <div><% unless current_user.voted_on?(addition) %>
             <%= link_to 'Like', vote_true_addition_path(addition) %>
