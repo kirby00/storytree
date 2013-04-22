@@ -34,6 +34,10 @@ class AdditionsController < ApplicationController
     def vote_true
       @addition = Addition.find(params[:id])
       vote = current_user.vote_for(@addition)
+
+      votes = Vote.find_all_by_voteable_id(vote.voteable_id)
+      Round.update(@addition.round_id, :winner_id => vote.voteable_id) if votes.count == 2
+
       redirect_to :back
     end
 

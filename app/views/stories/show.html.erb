@@ -15,7 +15,7 @@
       <div> Likes <%= addition.votes_for %></div>
 
       <div><% unless current_user.voted_on?(addition) %>
-            <%= link_to 'Like', vote_true_addition_path(addition) %>
+            <%= link_to 'Up Vote', vote_true_addition_path(addition) %>
            <% end %></div>
 
         <% if current_user && @story.user_id == current_user.id %>
