@@ -8,6 +8,143 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato';
+  font-weight: 300;
+  line-height: 1.5em;
+  color: #222;
+}
+a { text-decoration: none; }
+ul { list-style: none; }
+header { position: relative; overflow: hidden; font-size: 18px;}
+header #logo { font-weight: 300; margin: 44px 0 30px 0; float: left; position: relative; left: 80px; letter-spacing: -1px}
+header nav ul, footer nav ul {  position: absolute; right: 90px; top: 23px;}
+header nav ul li, footer nav li { display: inline; margin-right: 20px;}
+header nav ul li a, footer nav li a {
+  padding: 8px 18px 9px 18px;
+  border-radius: 5px;
+  color: #222;
+}
+
+header nav ul li a.icon-facebook-sign {
+  width: 66px;
+
+}
+
+header nav ul li a:hover, footer nav li a:hover { background-color: #221e1e; color: #fff; }
+
+#recent-stories-carrousel { min-height: 340px;}
+
+/* ---- home page info / green-bit ---- */
+
+#home-page-info { padding: 40px 0; background-color: #efefef; overflow: hidden; background-color: #c9ec23;}
+
+#home-page-info > div {
+  width:49%;
+  float: left;
+  min-height: 300px;
+  text-align: center;
+  color: #221e1e;
+
+}
+
+#home-page-info span { margin: 40px; display: block;}
+
+#home-page-info div p { width: 60%; margin: 0 auto; }
+
+.info-font-size { font-size: 200%;}
+
+
+/* ---- home page latest list ---- */
+
+#home-latest { overflow: hidden; padding: 60px 0; }
+#home-latest h1 { font-weight: 400; position: relative; left: 40px;}
+#home-latest li { width: 32%; float: left; min-height: 190px; }
+#home-latest h2 { font-weight: 400;}
+#home-latest .intro { width: 90%; margin: 0 auto;}
+#home-latest .author { text-align: right; padding-right: 50px; color: #bdbdbd;}
+
+/* ---- home page categories ---- */
+
+#home-categories { font-weight: 300; font-size: 140%; padding: 70px 0 70px 0; text-align: center; background-color: #444444;}
+#home-categories ul { padding: 0;}
+#home-categories ul li { display: inline-block; width: 20%; text-align: center; color: #bdbdbd;}
+#home-categories ul li span { display: block; text-align: center; margin: 0 auto 16px auto; font-size: 32px; color: #888;}
+#home-categories ul li a { color: #888;}
+#home-categories ul li a:hover { color: #bdbdbd;}
+/* ---- home page call to action ---- */
+
+#call-to-action { padding: 60px 0 80px 0; background-color: #ff2a00; color: #fff; text-align: center; }
+#call-to-action h2 { font-weight: 900; font-size: 36px; margin-bottom: 0;}
+#call-to-action p { margin: 10px 0 40px 0; font-size: 20px; font-weight: 400; color: #ffc6bb;}
+#call-to-action a {
+  font-weight: 300;
+  text-decoration: none;
+  padding: 8px 18px 9px 18px;
+  background-color: #221e1e;
+  border-radius: 5px;
+  color: #fff;
+}
+
+footer { min-height: 200px; position: relative;}
+
+
+/* ---- home page slides ---- */
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 60%;
+  padding: 0;
+  margin: 60px auto 20px auto;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+/* ---- bespoke rslides settings ---- */
+
+.rslides li h1 { letter-spacing: -1px}
+
+.rslides li p.intro a {
+  color: #444;
+  line-height: 1.3em;
+  font-weight: 300;
+  font-size: 200%;
+}
+
+.rslides li p.intro a:hover {
+  text-decoration: underline;
+}
+.rslides li p.author a {
+  color: #bdbdbd;
+  margin-left: 30px;
+}
+

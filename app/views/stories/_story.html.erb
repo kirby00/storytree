@@ -1,13 +1,11 @@
 <% story ||= @story %>
-<div class="row-fluid">
-  <div class= "span10">
-    <h4> Author: <%= User.find(story.user_id).name %> </h4>
-    <p><h3><%= link_to story.title, story %></h3></p>
-    <p><%= story.content %> </p>
-    <p>Story created: <%=time_ago_in_words(story.created_at) %> ago</p>
-    <div id="fb-root"></div>
-    <div class="fb-like" data-href="http://google.com" data-send="true" data-width="450" data-show-faces="true"></div>
-  </div>
+<div class= "span3">
+  <h4> Author: <%= User.find(story.user_id).name %> </h4>
+  <p><h3><%= link_to story.title, story %></h3></p>
+  <p><%= story.content %> </p>
+  <p>Story created: <%=time_ago_in_words(story.created_at) %> ago</p>
+  <div id="fb-root"></div>
+  <div class="fb-like" data-href="http://pacific-retreat-2649.herokuapp.com/stories/<%=story.id%>" data-send="false" data-width="450" data-show-faces="true"></div>
 </div>
 
 
