@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
         {
         :name => @story.title,
         :description => @story.content,
-        :picture => "/assets/story_tree_logo_transparent.png",
+        :picture => "http://www.story-tree.co.uk/assets/story_tree_logo_transparent.png",
         :link => "http://www.story-tree.co.uk/stories/#{@story.id}"
         })
 
