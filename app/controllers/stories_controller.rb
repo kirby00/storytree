@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
         {
         :name => @story.title,
         :description => @story.content,
-        :picture => "http://www.freewarepocketpc.net/wp7/img/lights-chinese-type.png",
+        :picture => "/assets/story_tree_logo_transparent.png",
         :link => "http://www.story-tree.co.uk/stories/#{@story.id}"
         })
 
