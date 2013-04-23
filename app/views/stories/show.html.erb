@@ -10,21 +10,24 @@
 </div>
 
 <% @successful_additions.each do |addition| %>
-  <p><%= addition.content %></p>
+  <div class="successful-addition"><p><%= addition.content %></p></div>
 <% end %>
 
 <% if @last_round.winner_id == nil %>
-
+<div id="current-round">
+  <h2>Current round</h2>
   <ul id="additions" style="margin-top: 40px">
 
   <% @additions.each do |addition| %>
-    <li>
+    <li class="current_addition">
       <div><%= addition.content %></div>
       <div>Likes <%= addition.votes_for %></div>
 
-      <div><% unless current_user.voted_on?(addition) %>
+      <div>
+        <% unless current_user.voted_on?(addition) %>
             <%= link_to 'Up Vote', vote_true_addition_path(addition) %>
-           <% end %></div>
+        <% end %>
+      </div>
 
         <% if current_user && @story.user_id == current_user.id %>
           <%= form_tag addition.round, method: "put" do %>
@@ -37,7 +40,7 @@
   <% end %>
   </ul>
 <% end %>
-
+</div>
 <% if current_user %>
   <%= render "additions/form" %>
 <% else %>

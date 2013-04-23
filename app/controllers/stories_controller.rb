@@ -1,5 +1,9 @@
 class StoriesController < ApplicationController
 
+  def index
+    @stories = Story.order("id DESC")
+  end
+
   def new
     @story = Story.new
   end
@@ -32,9 +36,4 @@ class StoriesController < ApplicationController
     winners = Round.get_winner_ids(@story)
     @successful_additions = Addition.find_all_by_id(winners)
   end
-
-  def index
-    @stories = Story.all
-  end
-
 end
