@@ -1,14 +1,15 @@
-<h1>add addition</h1>
+<div id="add-addition-form">
+  <h2>add addition</h2>
+  <%= form_for @addition , :html => {:class => "span8 offset1"} do |f| %>
+    <div class = "field"/>
+      <%= f.label :content %>
+      <%= f.text_area :content, :rows=>10, :class => "span8" %>
+    </div>
 
-<%= form_for @addition do |f| %>
-  <div class = "field"/>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
+    <%= hidden_field_tag(:story_id, @story.id) %>
 
-  <%= hidden_field_tag(:story_id, @story.id) %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<%end%>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <%end%>
+</div>

@@ -12,7 +12,6 @@
  *= require_self
  */
 
-
 body {
   margin: 0;
   padding: 0;
@@ -44,7 +43,7 @@ header nav ul li a:hover, footer nav li a:hover { background-color: #221e1e; col
 
 /* ---- home page info / green-bit ---- */
 
-#home-page-info { padding: 40px 0; background-color: #efefef; overflow: hidden; background-color: #c9ec23;}
+#home-page-info { padding: 40px 0; overflow: hidden; background-color: #c9ec23;}
 
 #home-page-info > div {
   width:49%;
@@ -148,4 +147,53 @@ footer { min-height: 200px; position: relative;}
   color: #bdbdbd;
   margin-left: 30px;
 }
+
+/* ---- user stats list ---- */
+
+#stats { background-color: #444; padding: 20px 0; }
+#stats h1 { color: #fff; letter-spacing: -1px; position: relative; left: 86px;}
+#stats ul { padding: 0; overflow: hidden; margin: 0 auto; width: 750px;  }
+#stats h2 { font-size: 100%; color: #b0b0b0; font-weight: 300;}
+#stats li {
+  float: left;
+  font-size: 100%;
+  width: 150px;
+  text-align: center;
+}
+
+#stats span { color: #bdbdbd; font-size: 160%;}
+
+
+/* ---- stories list page ---- */
+
+.story-list {
+  height: 280px;
+  background-color: #fff;
+  width: 30%;
+  float: left;
+  overflow: hidden;
+  margin-right: 1%;
+}
+
+
+/* ---- stories list page ---- */
+
+#story-intro {
+  padding: 40px;
+  background-color: #f1f1f1;
+}
+
+#story-content {
+  font-size: 180%;
+  line-height: 1.3em;
+  padding: 40px 10% 20px 10%;
+}
+
+#add-addition-form {
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+
+
 
