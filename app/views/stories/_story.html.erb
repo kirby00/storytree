@@ -1,8 +1,9 @@
 <% story ||= @story %>
-<div class= "span3">
+<div class="story-list">
   <h4> Author: <%= User.find(story.user_id).name %> </h4>
   <p><h3><%= link_to story.title, story %></h3></p>
-  <p><%= story.content %> </p>
+  <p><%= truncate(story.content, :length => 200, :separator => ' ') %></p>
+
   <p>Story created: <%=time_ago_in_words(story.created_at) %> ago</p>
   <div id="fb-root"></div>
   <div class="fb-like" data-href="http://pacific-retreat-2649.herokuapp.com/stories/<%=story.id%>" data-send="false" data-width="450" data-show-faces="true"></div>
