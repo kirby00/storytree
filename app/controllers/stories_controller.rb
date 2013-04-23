@@ -9,6 +9,16 @@ class StoriesController < ApplicationController
       @story = @user.stories.create(params[:story])
       redirect_to story_path(@story)
       Round.create({story_id: @story.id})
+
+      @user.facebook.put_wall_post(
+        "I just started a story on story-tree.co.uk",
+        {
+        :name => @story.title,
+        :description => @story.content,
+        :picture => "http://www.freewarepocketpc.net/wp7/img/lights-chinese-type.png",
+        :link => "http://www.story-tree.co.uk/stories/#{@story.id}"
+        })
+
     else
       redirect_to root_url
     end
