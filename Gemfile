@@ -51,4 +51,6 @@ group :tools do
   gem 'guard-test'
   gem 'guard-minitest'
 end
+
 gem 'omniauth-facebook'
+gem 'koala'
