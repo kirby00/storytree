@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @stories = User.stories(@user)
-    @additions = User.additions(@user)
+    @stories = @user.stories
+    @additions = @user.additions
   end
 end

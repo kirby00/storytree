@@ -13,5 +13,9 @@ class StoryFactory
     def without_title
       Story.new(:user_id => 1, :content => "something")
     end
+
+    def with_winner
+      Story.create(:user_id => 1, :title => "something", :content => "something")
+    end
   end
 end

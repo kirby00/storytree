@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
   has_many :stories
   has_many :additions
+  has_many :winning_additions, :through => :stories, :source => :winning_additions
+  has_many :votes, :through => :additions
 
   acts_as_voter
 
@@ -20,27 +22,34 @@ class User < ActiveRecord::Base
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
 
-  def self.stories(user)
-    Story.find_all_by_user_id(user.id)
-  end
+  # def self.stories(user)
+  #   Story.find_all_by_user_id(user.id)
+  # end
 
-  def self.additions(user)
-    Addition.find_all_by_user_id(user.id)
-  end
+  # def self.additions(user)
+  #   Addition.find_all_by_user_id(user.id)
+  # end
 
-  def self.story_count(user)
-    stories(user).count
-  end
+  # def self.story_count(user)
+  #   stories(user).count
+  # end
 
-  def self.addition_count(user)
-    additions(user).count
-  end
+  # def self.addition_count(user)
+  #   additions(user).count
+  # end
 
-  def self.winning_additions(user)
-    Round.where(["winner_id IN (?)", user.additions.map(&:id)]).count
-  end
+  # def winning_additions
+  #   additions = []
+  #   stories.each do |story|
+  #     additions.concat story.winning_additions
+  #   end
+  # end
 
-  def self.votes_count(user)
-    Vote.where(["voteable_id IN (?)", user.additions.map(&:id)]).count
-  end
+  # def self.winning_additions(user)
+  #   Round.where(["winner_id IN (?)", user.additions.map(&:id)]).count
+  # end
+
+  # def self.votes_count(user)
+  #   Vote.where(["voteable_id IN (?)", user.additions.map(&:id)]).count
+  # end
 end
