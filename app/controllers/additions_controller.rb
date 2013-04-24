@@ -22,7 +22,8 @@ class AdditionsController < ApplicationController
 
       if @addition.save
         render :json => { :status => 'true',
-                          :content => @addition.content
+                          :content => @addition.content,
+                          :addition_id => @addition.id
                         }
       else
         render :json => { :status => 'false' }

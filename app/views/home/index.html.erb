@@ -1,78 +1,25 @@
-
-
   <div id="recent-stories-carrousel">
     <ul class="rslides" id="slider1">
       <% @stories.each do |story| %>
-
-      <li><h1><%= story.title %></h1><p class="intro"><a href="#"><%= story.content %></a></p><p class="author"><% author = User.find(story.user_id) %>
+      <li><h1><%= link_to story.title, story_path(story) %></h1><p class="intro"><%= truncate(story.content, :length => 250, :separator => ' ') %></p><p class="author"><% author = User.find(story.user_id) %>
         <%= author.name %>
       </p></li>
-
       <% end %>
-
-      <!-- <li><h1>The Hitchhiker's Guide To The Galaxy</h1><p class="intro"><a href="#">In the beginning the Universe was created. This has made a lot of people very angry and has been widely regarded as a bad move.</a></p><p class="author">Douglas Adams</p></li>
-      <li><h1>Withnail And I</h1><p class="intro"><a href="#">We've gone on holiday by mistake.</a></p><p class="author">Bruce Robinson</p></li>
-      <li><h1>Wag The Dog</h1><p class="intro"><a href="#">What difference does it make if it's true? If it's a story and it breaks, they're gonna run with it.</a></p><p class="author">Larry Beinhart</p></li> -->
-
     </ul>
 
   </div>
 
   <div id="home-page-info">
-    <div><span class="icon-pencil info-font-size"></span><h2>start a story</h2><p>Got a great idea for a story? Start a story and see where the community takes it. Control how and when people add.</p></div>
-    <div><span class="icon-sitemap info-font-size"></span><h2>add to a story</h2><p>Love writing but not sure where to start? Read through other users' stories and add something special to a story-line already created.</p></div>
+    <div><span class="icon-pencil info-font-size"></span><h2><%= link_to "start a story", new_story_path %></h2><p>Got a great idea for a story? Start a story and see where the community takes it. Control how and when people add.</p></div>
+    <div><span class="icon-sitemap info-font-size"></span><h2><%= link_to "add to a story", stories_path %></h2><p>Love writing but not sure where to start? Read through other users' stories and add something special to a story-line already created.</p></div>
   </div>
   <div id="home-latest">
-    <h1>latest stories</h1>
     <ul>
-
       <% @stories.each do |story| %>
-      <li><h2 class="title"><%= story.title %></h2><p class="intro"><%= truncate(story.content, :length => 200, :separator => ' ') %></p><p class="author"><% author = User.find(story.user_id) %>
+      <li><h2 class="title"><%= link_to story.title, story_path(story) %></h2><p class="intro"><%= truncate(story.content, :length => 200, :separator => ' ') %></p><p class="author"><% author = User.find(story.user_id) %>
         <%= author.name %>
       </p></li>
       <% end %>
-
-
-      <!-- <li>
-        <h2 class="title">in the beginning</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-      <li>
-        <h2 class="title">shoe shopping</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-      <li>
-        <h2 class="title">Blinky goes to the park</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-      <li>
-        <h2 class="title">last week at MA</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-      <li>
-        <h2 class="title">The London Underground</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-            <li>
-        <h2 class="title">meh, whatever...</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-      <li>
-        <h2 class="title">in the beginning</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li>
-      <li>
-        <h2 class="title">shoe shopping</h2>
-        <p class="intro">Aenean elementum accumsan blandit. Morbi in elit vitae nisi euismod tristique id nec eros. Vivamus molestie ultrices risus, et sollicitudin dui molestie et.</p>
-        <p class="author">john smith</p>
-      </li> -->
     </ul>
   </div>
 
@@ -89,6 +36,15 @@
   <div id="call-to-action">
     <h2>Got an idea?</h2>
     <p>Why don't you start or add to a story...</p>
-    <a href="#">login</a>
+
+    <% if current_user %>
+      <%= link_to "start a story", new_story_path %>
+      <%= link_to "add to a story", stories_path %>
+    <% else %>
+      <%= link_to "login", "/auth/facebook", id: "sign_in" %>
+    <% end %>
+
+
+
   </div>
 

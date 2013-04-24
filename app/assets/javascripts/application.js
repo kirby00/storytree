@@ -29,13 +29,16 @@ $(document).ready(function() {
       {
         if(response.status == "true")
         {
-          $('#additions').prepend('<li>' + response.content + '</li>')
+          $('#additions').prepend('<li class="current_addition">' + response.content +
+            '<div><a href="/additions/' + response.addition_id + '/vote_true">Up Vote</a></div>' +
+            '<div class="fb-like" data-href="http://www.story-tree.co.uk/stories/<%=story.id%>" data-send="false" data-width="450" data-show-faces="false"></div></li>')
         } else {
           $('body').prepend('<div class="alert alert-error">Addition not saved to database.</div>');
         }
 
       }
     });
+    $('textarea').val('');
     e.preventDefault();
   });
 
@@ -96,4 +99,6 @@ $(document).ready(function() {
     $('#'+ t + 'C').fadeIn('slow');
  }
 });
+
+
 });

@@ -31,7 +31,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @last_round = @story.rounds.last
-    @additions = @last_round.additions.all
+    @additions = @last_round.additions.order("id DESC")
     @addition = Addition.new
     winners = Round.get_winner_ids(@story)
     @successful_additions = Addition.find_all_by_id(winners)

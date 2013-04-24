@@ -66,7 +66,8 @@ header nav ul li a:hover, footer nav li a:hover { background-color: #221e1e; col
 #home-latest { overflow: hidden; padding: 60px 0; }
 #home-latest h1 { font-weight: 400; position: relative; left: 40px;}
 #home-latest li { width: 32%; float: left; min-height: 190px; }
-#home-latest h2 { font-weight: 400;}
+#home-latest h2 a { font-weight: 400; color: #222;}
+#home-latest h2 a:hover { text-decoration: none;}
 #home-latest .intro { width: 90%; margin: 0 auto;}
 #home-latest .author { text-align: right; padding-right: 50px; color: #bdbdbd;}
 
@@ -131,9 +132,9 @@ footer { min-height: 200px; position: relative;}
 
 /* ---- bespoke rslides settings ---- */
 
-.rslides li h1 { letter-spacing: -1px}
-
-.rslides li p.intro a {
+.rslides li h1 a { letter-spacing: -1px; color: #222;}
+.rslides li h1 a:hover { text-decoration: none; }
+.rslides li p.intro {
   color: #444;
   line-height: 1.3em;
   font-weight: 300;
@@ -143,7 +144,7 @@ footer { min-height: 200px; position: relative;}
 .rslides li p.intro a:hover {
   text-decoration: underline;
 }
-.rslides li p.author a {
+.rslides li p.author {
   color: #bdbdbd;
   margin-left: 30px;
 }

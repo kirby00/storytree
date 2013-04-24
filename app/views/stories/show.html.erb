@@ -21,13 +21,15 @@
   <% @additions.each do |addition| %>
     <li class="current_addition">
       <div><%= addition.content %></div>
-      <div>Likes <%= addition.votes_for %></div>
+      <div>Votes <%= addition.votes_for %></div>
 
       <div>
         <% unless current_user.voted_on?(addition) %>
             <%= link_to 'Up Vote', vote_true_addition_path(addition) %>
         <% end %>
       </div>
+
+      <div class="fb-like" data-href="http://www.story-tree.co.uk/stories/<%=addition.id%>" data-send="false" data-width="450" data-show-faces="false"></div>
 
         <% if current_user && @story.user_id == current_user.id %>
           <%= form_tag addition.round, method: "put" do %>
