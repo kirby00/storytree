@@ -2,11 +2,13 @@
 <div id="stats">
   <h1><%= @user.name %></h1>
   <ul>
-    <li><h2>stories</h2><span><%= @story_count %></span></li>
-    <li><h2>additions</h2><span><%= @addition_count %></span></li>
-    <li><h2>winning additions</h2><span><%= @winning_additions_count if @winning_additions_count %></span></li>
-    <li><h2>votes</h2><span><%= @total_votes if @total_votes %></span></li>
-    <li><h2>average</h2><span><%= (@total_votes.to_i / @addition_count.to_f).round(2) %></span></li>
+    <li><h2>stories</h2><span><%= User.story_count(@user) %></span></li>
+    <li><h2>additions</h2><span><%= addition_count = User.addition_count(@user) %></span></li>
+    <% winning_additions_count = User.winning_additions(@user) %>
+    <li><h2>winning additions</h2><span><%= winning_additions_count if winning_additions_count %></span></li>
+    <% total_votes = User.votes_count(@user) %>
+    <li><h2>votes</h2><span><%= total_votes if total_votes %></span></li>
+    <li><h2>average</h2><span><%= (total_votes.to_i / addition_count.to_f).round(2) %></span></li>
   </ul>
 </div>
 

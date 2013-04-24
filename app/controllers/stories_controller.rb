@@ -17,12 +17,11 @@ class StoriesController < ApplicationController
       @user.facebook.put_wall_post(
         "I just started a story on story-tree.co.uk",
         {
-        :name => @story.title,
-        :description => @story.content,
-        :picture => "http://www.story-tree.co.uk/assets/story_tree_logo_transparent.png",
-        :link => "http://www.story-tree.co.uk/stories/#{@story.id}"
+          :name => @story.title,
+          :description => @story.content,
+          :picture => "http://www.story-tree.co.uk/assets/story_tree_logo_transparent.png",
+          :link => "http://www.story-tree.co.uk/stories/#{@story.id}"
         })
-
     else
       redirect_to root_url
     end
