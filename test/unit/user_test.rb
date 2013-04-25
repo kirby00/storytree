@@ -8,13 +8,4 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_not_nil @user.stories
   end
-
-  test "should return winning additions" do
-    # assert_not_nil, winning_additions
-  end
-
-  test "should return total votes won by user" do
-    # assert_not_nil, votes_count
-  end
-
 end

@@ -3,17 +3,5 @@ class Round < ActiveRecord::Base
 
   has_many :additions
   belongs_to :story
-
   belongs_to :winner, :class_name => 'Addition'
-
-
-  def self.get_winner_ids(story)
-    rounds = self.where("story_id = ? AND winner_id IS NOT NULL", story.id)
-    winners = []
-    rounds.each do |round|
-      winners << round.winner_id
-    end
-    winners
-  end
-
 end

@@ -21,35 +21,4 @@ class User < ActiveRecord::Base
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
-
-  # def self.stories(user)
-  #   Story.find_all_by_user_id(user.id)
-  # end
-
-  # def self.additions(user)
-  #   Addition.find_all_by_user_id(user.id)
-  # end
-
-  # def self.story_count(user)
-  #   stories(user).count
-  # end
-
-  # def self.addition_count(user)
-  #   additions(user).count
-  # end
-
-  # def winning_additions
-  #   additions = []
-  #   stories.each do |story|
-  #     additions.concat story.winning_additions
-  #   end
-  # end
-
-  # def self.winning_additions(user)
-  #   Round.where(["winner_id IN (?)", user.additions.map(&:id)]).count
-  # end
-
-  # def self.votes_count(user)
-  #   Vote.where(["voteable_id IN (?)", user.additions.map(&:id)]).count
-  # end
 end

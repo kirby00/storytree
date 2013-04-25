@@ -10,6 +10,4 @@ class Addition < ActiveRecord::Base
   has_one :won_round, :class_name => 'Round', :foreign_key => :winner_id
 
   acts_as_voteable
-
-
 end
