@@ -24,13 +24,13 @@
       <div>Votes <%= addition.votes_for %></div>
 
 
-
-      <div>
-        <% unless current_user.voted_on?(addition) %>
-            <%= link_to 'Up Vote', vote_true_addition_path(addition) %>
-        <% end %>
+    <% if current_user %>
+    <div>
+      <% unless current_user.voted_on?(addition) %>
+          <%= link_to 'Up Vote', vote_true_addition_path(addition) %>
+      <% end %>
       </div>
-
+    <% end %>
 
         <% if current_user && @story.user_id == current_user.id %>
           <%= form_tag addition.round, method: "put" do %>
