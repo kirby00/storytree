@@ -269,7 +269,11 @@ form#new_story input, form#new_story textarea {
   left: 10%;
 }
 
-
+#log-in-to-continue-story {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 120%;
+}
 
 
 
