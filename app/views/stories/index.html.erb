@@ -1,8 +1,7 @@
 <body>
-  <p><%= link_to "Add new story", new_story_path %></p>
+  <div id="add-new-story-link"><%= link_to "Add new story", new_story_path %></div>
   <div class="container-fluid">
     <div class="row-fluid">
-      <h1>Stories</h1>
       <%= render @stories %>
     </div>
   </div>

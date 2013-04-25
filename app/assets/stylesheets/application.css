@@ -20,11 +20,12 @@ body {
   line-height: 1.5em;
   color: #222;
 }
-a { text-decoration: none; }
+
+a { text-decoration: none; color: #333;}
 ul { list-style: none; }
 header { position: relative; overflow: hidden; font-size: 18px;}
 header #logo { font-weight: 300; margin: 44px 0 30px 0; float: left; position: relative; left: 80px; letter-spacing: -1px}
-header nav ul, footer nav ul {  position: absolute; right: 90px; top: 23px;}
+header nav ul, footer nav ul {  position: absolute; right: 90px; top: 58px;}
 header nav ul li, footer nav li { display: inline; margin-right: 20px;}
 header nav ul li a, footer nav li a {
   padding: 8px 18px 9px 18px;
@@ -216,6 +217,60 @@ footer { min-height: 200px; position: relative;}
   position: relative;
   left: 40px;
 }
+
+#users-list, ul#tabs {
+  width: 60%;
+  margin: 30px auto;
+  font-size: 140%;
+}
+
+ul#tabs {
+  width: 80%;
+  margin: 30px auto;
+  font-size: 140%;
+}
+
+ul#tabs li {
+  display: inline;
+  margin-right: 30px;
+}
+
+#add-new-story-link {
+  padding: 40px 0;
+}
+
+#add-new-story-link a {
+  padding: 5px 8px 6px 8px;
+  background-color: #efefef;
+  border-radius: 4px;
+  position: relative;
+  left: 10%;
+}
+
+#add-new-story-link a:hover {
+  text-decoration: none;
+  background-color: #999;
+  color: #fff;
+}
+
+form#new_story {
+  width: 50%;
+  margin: 40px auto;
+}
+
+form#new_story input, form#new_story textarea {
+  width: 100%;
+}
+
+
+#add-addition-form h2 {
+  position: relative;
+  padding: 20px 0;
+  left: 10%;
+}
+
+
+
 
 
 
