@@ -19,9 +19,10 @@
     <!-- "/assets/dynamic_logo.gif" --> <!-- alternative (dynamic) logo -->
     <nav>
       <ul>
-        <li><%= link_to 'home', root_url %></li>
-        <li><%= link_to 'stories', stories_path %></li>
-        <li><a href="">about</a></li>
+        <li class="mobile-hide"><%= link_to 'home', root_url %></li>
+        <li class="mobile-hide"><%= link_to 'stories', stories_path %></li>
+        <li class="mobile-hide"><%= link_to 'users', users_path %></li>
+        <li class="mobile-hide"><a href='about'>about</a></li>
         <% if current_user %>
           <li>Signed in as <strong><%= current_user.name %></strong>
           <%= link_to "log out", signout_path, id: "sign_out" %></li>
@@ -36,13 +37,18 @@
 
     <footer>
 
-    <nav>
-      <ul>
-        <li>home</li>
-        <li>stories</li>
-        <li>search</li>
-        <li>about</li>
-        <li>contact</li>
+  <nav>
+      <ul id="footer">
+        <li class="mobile-hide"><%= link_to 'home', root_url %></li>
+        <li class="mobile-hide"><%= link_to 'stories', stories_path %></li>
+        <li class="mobile-hide"><%= link_to 'users', users_path %></li>
+        <li class="mobile-hide"><a href='about'>about</a></li>
+        <% if current_user %>
+          <li>Signed in as <strong><%= current_user.name %></strong>
+          <%= link_to "log out", signout_path, id: "sign_out" %></li>
+        <% else %>
+          <li class="icon-facebook-sign"> <%= link_to "login", "/auth/facebook", id: "sign_in" %></li>
+        <% end %>
       </ul>
     </nav>
   </footer>
