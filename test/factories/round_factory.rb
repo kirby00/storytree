@@ -7,7 +7,7 @@ class RoundFactory
     end
 
     def round_with_winner(story)
-      Round.create!(story_id: story.id, winner_id: 1)
+      Round.create!(story_id: story.id, winner_id: addition.id)
     end
 
   end
