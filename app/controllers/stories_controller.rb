@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.order("id DESC")
+    @stories = Story.all
   end
 
   def new
