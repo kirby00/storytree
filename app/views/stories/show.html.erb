@@ -2,8 +2,7 @@
 <div id="story-intro">
   <h1><%= @story.title %></h1>
   <div id="story-details">
-    Author: <%= User.find(@story.user_id).name %>
-    <span>Story created: <%=time_ago_in_words(@story.created_at) %> ago</span>
+    <span>Created by <%= User.find(@story.user_id).name %> <%=time_ago_in_words(@story.created_at) %> ago</span>
   </div>
   <div id="story-content"><%= @story.content %></div>
 

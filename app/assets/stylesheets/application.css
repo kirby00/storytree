@@ -22,6 +22,7 @@ body {
 }
 
 a { text-decoration: none; color: #333;}
+a:hover { text-decoration: none; color: #333;}
 ul { list-style: none; }
 header { position: relative; overflow: hidden; font-size: 18px;}
 header #logo { font-weight: 300; margin: 44px 0 30px 0; float: left; position: relative; left: 80px; letter-spacing: -1px}
@@ -82,7 +83,7 @@ header nav ul li a:hover, footer nav li a:hover { background-color: #221e1e; col
 #home-categories ul li a:hover { color: #bdbdbd;}
 /* ---- home page call to action ---- */
 
-#call-to-action { padding: 60px 0 80px 0; background-color: #ff2a00; color: #fff; text-align: center; }
+#call-to-action { padding: 60px 0 80px 0; background-color: #ab1a26; color: #fff; text-align: center; }
 #call-to-action h2 { font-weight: 900; font-size: 36px; margin-bottom: 0;}
 #call-to-action p { margin: 10px 0 40px 0; font-size: 20px; font-weight: 400; color: #ffc6bb;}
 #call-to-action a {
@@ -181,9 +182,12 @@ footer { min-height: 200px; position: relative;}
 /* ---- stories list page ---- */
 
 #story-intro {
-  padding: 40px;
   background-color: #f1f1f1;
 }
+
+#story-intro h1, #story-details { padding: 20px 0 10px 40px; }
+#story-details { padding-top: 0; }
+
 
 #story-content {
   font-size: 180%;
@@ -224,6 +228,7 @@ footer { min-height: 200px; position: relative;}
   font-size: 140%;
 }
 
+#users-list li { padding: 20px 0;}
 ul#tabs {
   width: 80%;
   margin: 30px auto;
@@ -240,17 +245,17 @@ ul#tabs li {
 }
 
 #add-new-story-link a {
-  padding: 5px 8px 6px 8px;
-  background-color: #efefef;
+  padding: 7px 12px 8px 12px;
+  font-size: 120%;
+  background-color: #c9ec23;
   border-radius: 4px;
   position: relative;
-  left: 10%;
+  left: 145px;
 }
 
 #add-new-story-link a:hover {
   text-decoration: none;
-  background-color: #999;
-  color: #fff;
+
 }
 
 form#new_story {
@@ -285,6 +290,9 @@ form#new_story input, form#new_story textarea {
   margin: 20px auto;
 }
 
+#about p {
+  font-size: 120%;
+}
 
 @media screen and (max-width: 900px) {
 
