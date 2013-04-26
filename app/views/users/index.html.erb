@@ -1,5 +1,5 @@
 <ul id="users-list">
   <% @users.each do |u| %>
-     <li><%= link_to u.name, user_path(u) %> </li>
+     <li><img src="<%= u.facebook.get_picture(u.uid) %>"> <%= link_to u.name, user_path(u) %></li>
   <% end %>
 </ul>
