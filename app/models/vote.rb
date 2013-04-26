@@ -1,4 +1,5 @@
 class Vote < ActiveRecord::Base
+  attr_accessible :vote, :voter, :voteable
 
   scope :for_voter, lambda { |*args| where(["voter_id = ? AND voter_type = ?", args.first.id, args.first.class.base_class.name]) }
   scope :for_voteable, lambda { |*args| where(["voteable_id = ? AND voteable_type = ?", args.first.id, args.first.class.base_class.name]) }
@@ -8,8 +9,5 @@ class Vote < ActiveRecord::Base
   belongs_to :voteable, :polymorphic => true
   belongs_to :voter, :polymorphic => true
 
-  attr_accessible :vote, :voter, :voteable
-
-  # Comment out the line below to allow multiple votes per user.
   validates_uniqueness_of :voteable_id, :scope => [:voteable_type, :voter_type, :voter_id]
 end

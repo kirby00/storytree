@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
+
   has_many :stories
   has_many :additions
   has_many :winning_additions, :through => :stories, :source => :winning_additions
